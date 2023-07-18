@@ -44,10 +44,18 @@ export default App;
 ```
 2.The ToggleSwitcher component takes the following props:
 
-checked: A boolean prop to indicate whether the switcher is in the "dark" theme state (true) or the "light" theme state (false).
-width and height: Numeric props to define the width and height of the toggle switcher button.
-onChange: A callback function that will be triggered when the user interacts with the toggle switcher. It should update the state to change the theme.
-lightBackground and darkBackground: String props representing the background colors for the "light" and "dark" themes, respectively.
+### checked: 
+A boolean prop to indicate whether the switcher is in the "dark" theme state (true) or the "light" theme state (false).
+
+### width and height: 
+Numeric props to define the width and height of the toggle switcher button.
+
+### onChange:
+A callback function that will be triggered when the user interacts with the toggle switcher. It should update the state to change the theme.
+
+### lightBackground and darkBackground:
+String props representing the background colors for the "light" and "dark" themes, respectively.
+
 3.Customize the ToggleSwitcher component according to your application's styling and requirements. You can modify the width, height, and colors to match your application's design.
 
 4.When the user interacts with the toggle switcher, the handleToggleChange function will be called, and the theme state will be updated accordingly, triggering a re-render of your application with the new theme.
