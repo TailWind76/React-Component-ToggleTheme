@@ -1,70 +1,53 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Toggle Theme Switcher Component
+The ToggleSwitcher component is a simple React component that allows users to switch between two themes: "light" and "dark". It renders a toggle switch button, and when the user interacts with it, the theme is changed accordingly.
 
-## Available Scripts
+## Installation
+To use the ToggleSwitcher component, you need to have a React project set up. If you don't have one, you can create a new React application using Create React App or any other preferred method.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
+To integrate the ToggleSwitcher component into your application, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.First, initialize the state for the theme using the useState hook. In your main application file (e.g., App.js), import the ToggleSwitcher component and set up the theme state:
 
-### `npm test`
+```javascript
+ import React, { useState } from 'react';
+import ToggleSwitcher from 'path-to-toggleButton-component';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function App() {
+  const [theme, setTheme] = useState('light');
 
-### `npm run build`
+  const handleToggleChange = () => {
+    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Toggle Theme Switcher</h1>
+      <ToggleSwitcher
+        checked={theme === 'dark'}
+        width={300}
+        height={100}
+        onChange={handleToggleChange}
+        lightBackground="aqua"
+        darkBackground="#000"
+      />
+      <p>Theme: {theme}</p>
+    </div>
+  );
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default App;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+2.The ToggleSwitcher component takes the following props:
 
-### `npm run eject`
+checked: A boolean prop to indicate whether the switcher is in the "dark" theme state (true) or the "light" theme state (false).
+width and height: Numeric props to define the width and height of the toggle switcher button.
+onChange: A callback function that will be triggered when the user interacts with the toggle switcher. It should update the state to change the theme.
+lightBackground and darkBackground: String props representing the background colors for the "light" and "dark" themes, respectively.
+3.Customize the ToggleSwitcher component according to your application's styling and requirements. You can modify the width, height, and colors to match your application's design.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4.When the user interacts with the toggle switcher, the handleToggleChange function will be called, and the theme state will be updated accordingly, triggering a re-render of your application with the new theme.
